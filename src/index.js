@@ -1,21 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-const shoppingList = ['apple', 'banana', 'carrot'];
-
-// This code...
 const element = (
-  <div>
-    Items left to purchase: {shoppingList.length}
-  </div>
-);
-
-// ...is equivalent to this code:
-const compiledElement = React.createElement(
-  'div',
-  {},
-  'Items left to purchase: ',
-  shoppingList.length
+  <video
+    src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+    autoPlay={true}
+  />
 );
 
 const container = document.querySelector('#root');
