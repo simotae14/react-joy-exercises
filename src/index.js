@@ -1,20 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-//// Old way:
-// const element = React.createElement(
-//   'p',
-//   {
-//     id: 'hello',
-//   },
-//   'Hello World!'
-// );
+const shoppingList = ['apple', 'banana', 'carrot'];
 
-// New way:
+// This code...
 const element = (
-  <p id="hello">
-    Hello World!
-  </p>
+  <div>
+    Items left to purchase: {shoppingList.length}
+  </div>
+);
+
+// ...is equivalent to this code:
+const compiledElement = React.createElement(
+  'div',
+  {},
+  'Items left to purchase: ',
+  shoppingList.length
 );
 
 const container = document.querySelector('#root');
