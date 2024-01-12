@@ -7,33 +7,20 @@ const data = [
     job: 'Electrical Engineer',
     email: 'sunita.kumar@acme.co',
   },
-  {
-    id: 'henderson-def456',
-    name: 'Henderson G. Sterling II',
-    job: 'Receptionist',
-    email: 'henderson-the-second@acme.co',
-  },
-  {
-    id: 'aio-ghi789',
-    name: 'Aoi Kobayashi',
-    job: 'President',
-    email: 'kobayashi.aoi@acme.co',
-  },
-]
+  // ✂️ Other contacts trimmed
+];
 
 function App() {
   return (
     <ul>
-      {
-        data.map(({ id, name, job, email }) => (
-          <ContactCard
-            key={id}
-            name={name}
-            job={job}
-            email={email}
-          />
-        ))
-      }
+      {data.map(contact => (
+      	<ContactCard
+          key={contact.id}
+          name={contact.name}
+          job={contact.job}
+          email={contact.email}
+        />
+      ))}
     </ul>
   );
 }
