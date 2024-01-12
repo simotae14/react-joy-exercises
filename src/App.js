@@ -1,39 +1,60 @@
-import Avatar from './Avatar';
+import CartTable from './CarTable';
 
-const data = [
+const items = [
   {
-    id: '001',
-    alt: 'person with curly hair and a black T-shirt',
+    id: 'hk123',
+    imageSrc: 'https://sandpack-bundler.vercel.app/img/shopping-cart-coffee-machine.jpg',
+    imageAlt: 'A pink drip coffee machine with the “Hello Kitty” logo',
+    title: '“Hello Kitty” Coffee Machine',
+    price: '89.99',
+    inStock: true,
   },
   {
-    id: '002',
-    alt: 'person wearing a hijab and glasses',
+    id: 'co999',
+    imageSrc: 'https://sandpack-bundler.vercel.app/img/shopping-cart-can-opener.jpg',
+    imageAlt: 'A black can opener',
+    title: 'Safety Can Opener',
+    price: '19.95',
+    inStock: false,
   },
   {
-    id: '003',
-    alt: 'person with short hair wearing a blue hoodie',
+    id: 'cnl333',
+    imageSrc: 'https://sandpack-bundler.vercel.app/img/shopping-cart-night-light.png',
+    imageAlt: 'A kid-friendly nightlight sculpted to look like a dog astronaut',
+    title: 'Astro-pup Night Light',
+    price: '130.00',
+    inStock: true,
   },
   {
-    id: '004',
-    alt: 'person with a pink mohawk and a raised eyebrow',
+    id: 'scb777',
+    imageSrc: 'https://sandpack-bundler.vercel.app/img/shopping-cart-backpack.jpg',
+    imageAlt: 'A pink backpack with a unicorn illustration',
+    title: 'Magical Unicorn Backpack',
+    price: '74.98',
+    inStock: true,
   },
 ];
 
-
 function App() {
+  const inStockItems = items.filter(({ inStock }) => inStock);
+  const outOfStockItems  = items.filter(({ inStock }) => !inStock);
+
   return (
-    <div className="avatar-set">
-      {
-        data.map(({ id, alt }) => (
-          <Avatar
-            key={id}
-            src={`https://sandpack-bundler.vercel.app/img/avatars/${id}.png`}
-            alt={alt}
-          />
-        ))
-      }
-    </div>
-  )
+    <>
+      <h2>Shopping cart</h2>
+      <CartTable items={inStockItems} />
+      <div className="actions">
+        <button>Continue checkout</button>
+      </div>
+
+      <h2>Sold out</h2>
+      {/*
+        TODO: A second CartTable for
+        out-of-stock items
+      */}
+      <CartTable items={outOfStockItems} />
+    </>
+  );
 }
 
 export default App;
