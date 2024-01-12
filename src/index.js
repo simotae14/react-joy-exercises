@@ -1,11 +1,13 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+const daysUntilSantaReturns = 123;
+
 const element = (
-  <video
-    src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
-    autoPlay={true}
-  />
+<div>
+  <strong>Days until Santa returns:</strong>
+  {' '}
+  {daysUntilSantaReturns}
+</div>
 );
 
 const container = document.querySelector('#root');
