@@ -1,14 +1,25 @@
+import VisuallyHidden from './VisuallyHidden';
+
+function Friend({ name, isOnline }) {
+  return (
+    <li className="friend">
+      {isOnline && <div className="green-dot" />}
+      {name}
+      {isOnline && (
+        <VisuallyHidden> (Online)</VisuallyHidden>
+      )}
+    </li>
+  );
+}
+
 function App() {
   return (
-    <ul>
-      <li>false: {false}</li>
-      <li>undefined: {undefined}</li>
-      <li>null: {null}</li>
-      <li>Empty string: {''}</li>
-      <li>Zero: {0}</li>
-      <li>NaN: {NaN}</li>
+    <ul className="friend-list">
+      <Friend name="Andrew" isOnline={false} />
+      <Friend name="Beatrice" isOnline={true} />
+      <Friend name="Chen" isOnline={true} />
     </ul>
-  );
+  )
 }
 
 export default App;
