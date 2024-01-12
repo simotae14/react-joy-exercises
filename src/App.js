@@ -1,28 +1,39 @@
-import ContactCard from './ContactCard';
+import Avatar from './Avatar';
 
 const data = [
   {
-    id: 'sunita-abc123',
-    name: 'Sunita Kumar',
-    job: 'Electrical Engineer',
-    email: 'sunita.kumar@acme.co',
+    id: '001',
+    alt: 'person with curly hair and a black T-shirt',
   },
-  // ✂️ Other contacts trimmed
+  {
+    id: '002',
+    alt: 'person wearing a hijab and glasses',
+  },
+  {
+    id: '003',
+    alt: 'person with short hair wearing a blue hoodie',
+  },
+  {
+    id: '004',
+    alt: 'person with a pink mohawk and a raised eyebrow',
+  },
 ];
+
 
 function App() {
   return (
-    <ul>
-      {data.map(contact => (
-      	<ContactCard
-          key={contact.id}
-          name={contact.name}
-          job={contact.job}
-          email={contact.email}
-        />
-      ))}
-    </ul>
-  );
+    <div className="avatar-set">
+      {
+        data.map(({ id, alt }) => (
+          <Avatar
+            key={id}
+            src={`https://sandpack-bundler.vercel.app/img/avatars/${id}.png`}
+            alt={alt}
+          />
+        ))
+      }
+    </div>
+  )
 }
 
 export default App;
