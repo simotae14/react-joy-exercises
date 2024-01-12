@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-function FriendlyGreeting() {
+function FriendlyGreeting({ name }) {
   return (
     <p
       style={{
@@ -10,11 +10,19 @@ function FriendlyGreeting() {
         color: 'sienna',
       }}
     >
-      Greetings, weary traveller!
+      Greetings, {name}!
     </p>
   );
 }
 
-const container = document.querySelector('#root');
-const root = createRoot(container);
-root.render(<FriendlyGreeting />);
+// The video was filmed using React 17, and so
+// this playground has been updated for React 18.
+const root = createRoot(document.querySelector('#root'));
+
+root.render(
+  <div>
+    <FriendlyGreeting name="Josh" />
+    <FriendlyGreeting name="Anita" />
+    <FriendlyGreeting name="Rahul" />
+  </div>
+);
