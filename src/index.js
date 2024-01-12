@@ -1,13 +1,10 @@
-import React from 'react';
+import React from "react";
 import { createRoot } from 'react-dom/client';
+import "./reset.css";
+import "./styles.css";
+import App from "./App";
 
-const element = (
-  <div children="As an attribute">
-    Between the brackets
-  </div>
-);
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-const root = createRoot(
-  document.querySelector('#root')
-);
-root.render(element);
+root.render(<App />);
