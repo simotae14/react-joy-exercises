@@ -1,4 +1,11 @@
-import Friend from './Friend'
+function Friend({ name, isOnline }) {
+  return (
+    <li className="friend">
+      {isOnline && <div className="green-dot" />}
+      {name}
+    </li>
+  );
+}
 
 function App() {
   return (
@@ -7,7 +14,7 @@ function App() {
       <Friend name="Beatrice" isOnline={true} />
       <Friend name="Chen" isOnline={true} />
     </ul>
-  )
+  );
 }
 
 export default App;
