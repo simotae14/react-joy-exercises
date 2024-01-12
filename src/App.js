@@ -1,3 +1,11 @@
-export default function App() {
-  return <h1>Hello world</h1>
+import FancyButton from './FancyButton';
+
+function App() {
+  return (
+    <FancyButton>
+      Click me!
+    </FancyButton>
+  );
 }
+
+export default App;
