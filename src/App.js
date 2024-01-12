@@ -1,19 +1,15 @@
-function Friend({ name, isOnline }) {
-  return (
-    <li className="friend">
-      {isOnline && <div className="green-dot" />}
-      {name}
-    </li>
-  );
-}
+import ShoppingList from './ShoppingList';
 
 function App() {
+  const shoppingList = [];
+  const numOfItems = shoppingList.length;
+
   return (
-    <ul className="friend-list">
-      <Friend name="Andrew" isOnline={false} />
-      <Friend name="Beatrice" isOnline={true} />
-      <Friend name="Chen" isOnline={true} />
-    </ul>
+    <div>
+      {numOfItems && (
+        <ShoppingList items={shoppingList} />
+      )}
+    </div>
   );
 }
 
