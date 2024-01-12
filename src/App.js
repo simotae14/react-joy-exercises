@@ -1,10 +1,11 @@
-import FancyButton from './FancyButton';
+import React from 'react';
 
 function App() {
   return (
-    <FancyButton>
-      Click me!
-    </FancyButton>
+    <>
+      <h1>Welcome to my homepage!</h1>
+      <p>Don't forget to sign the guestbook!</p>
+    </>
   );
 }
 
