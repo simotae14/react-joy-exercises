@@ -2,20 +2,10 @@ import React from 'react';
 
 function App() {
   return (
-    <ul>
-      <ListItems />
-      <li>Item 3</li>
-      <li>Item 4</li>
-    </ul>
-  );
-}
-
-function ListItems() {
-  return (
-    <div>
-      <li>Item 1</li>
-      <li>Item 2</li>
-    </div>
+    <React.Fragment>
+      <h1>Welcome to my homepage!</h1>
+      <p>Don't forget to sign the guestbook!</p>
+    </React.Fragment>
   );
 }
 
