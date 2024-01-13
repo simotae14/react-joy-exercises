@@ -1,13 +1,42 @@
-import SearchForm from './SearchForm';
+import React from 'react';
 
 function App() {
-  // This function is a placeholder.
-  function runSearch(searchTerm) {
-    window.alert(`Searched for: ${searchTerm}`);
-  }
-  
+  const [
+    selectedOption,
+    setSelectedOption
+  ] = React.useState('red');
+
   return (
-    <SearchForm runSearch={runSearch} />
+    <form>
+      <fieldset>
+        <legend>
+          What is your favourite color?
+        </legend>
+        
+        <select
+          value={selectedOption}
+          onChange={event => {
+            setSelectedOption(event.target.value)
+          }}
+        >
+          <option value="red">
+            Red
+          </option>
+          <option value="green">
+            Green
+          </option>
+          <option value="blue">
+            Blue
+          </option>
+        </select>
+      </fieldset>
+      
+      <p>
+        Selected value:
+        <br />
+        {selectedOption}
+      </p>
+    </form>
   );
 }
 

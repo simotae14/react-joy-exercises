@@ -1,14 +1,12 @@
-form {
-  padding: 8px;
-  border: 1px solid;
-  margin-bottom: 32px;
+fieldset div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+p {
+  margin-top: 2rem;
+  text-align: center;
 }
 label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 400;
-}
-input {
-  display: block;
-  width: 100%;
+  text-transform: capitalize;
 }
