@@ -1,35 +1,24 @@
 import React from 'react';
 
-function SearchForm() {
-  const [searchTerm, setSearchTerm] = React.useState('cats!');
+function SignupForm() {
+  // No default value:
+  const [username, setUsername] = React.useState('');
   
   return (
-    <>
-      <form>
-        <label htmlFor="search-input">
-          Search:
-        </label>
-        <input
-          type="text"
-          id="search-input"
-          value={searchTerm}
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
-        />
-      </form>
-
-      <p>
-        Search term: {searchTerm}
-      </p>
-
-      <button
-        onClick={() => setSearchTerm(Math.random())}
-      >
-        Click me
-      </button>
-    </>
+    <form>
+      <label htmlFor="username">
+        Select a username:
+      </label>
+      <input
+        type="text"
+        id="username"
+        value={username}
+        onChange={event => {
+          setUsername(event.target.value);
+        }}
+      />
+    </form>
   );
 }
 
-export default SearchForm;
+export default SignupForm;
