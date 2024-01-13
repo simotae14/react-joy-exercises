@@ -1,47 +1,49 @@
 import React from 'react';
 
+import { COUNTRIES } from './data';
+
+const countryNames = Object.entries(COUNTRIES);
+
 function App() {
   const [
-    value,
-    setValue
-  ] = React.useState('no');
+    country,
+    setCountry,
+  ] = React.useState('');
 
   return (
     <form>
       <fieldset>
-        <legend>Do you agree?</legend>
-        
-        <input
-          type="radio"
-          name="agreed-to-terms"
-          id="agreed-yes"
-          value="yes"
-          checked={value === "yes"}
-          onChange={event => {
-            setValue(event.target.value)
-          }}
-        />
-        {' '}
-        <label htmlFor="agreed-yes">
-          Yes
+        <legend>Shipping Info</legend>
+        <label htmlFor="country">
+          Country:
         </label>
-        <br />
-        
-        <input
-          type="radio"
-          name="agreed-to-terms"
-          id="agreed-no"
-          value="no"
-          checked={value === "no"}
+        <select
+          id="country"
+          name="country"
+          value={country}
           onChange={event => {
-            setValue(event.target.value)
+            setCountry(event.target.value)
           }}
-        />
-        {' '}
-        <label htmlFor="agreed-no">
-          No
-        </label>
+          required
+        >
+          <option value="">- Select Country -</option>
+          <optgroup label="Countries">
+          {
+            countryNames.map(([id, label]) => (
+              <option key={id} value={id}>
+                {label}
+              </option>
+            ))
+          }
+          </optgroup>
+        </select>
       </fieldset>
+
+      <p className="country-display">
+        Selected country: {COUNTRIES[country]}
+      </p>
+
+      <button>Submit</button>
     </form>
   );
 }
