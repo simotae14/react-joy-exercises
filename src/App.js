@@ -1,24 +1,14 @@
-import React from 'react';
+import SearchForm from './SearchForm';
 
-function SignupForm() {
-  // No default value:
-  const [username, setUsername] = React.useState('');
+function App() {
+  // This function is a placeholder.
+  function runSearch(searchTerm) {
+    window.alert(`Searched for: ${searchTerm}`);
+  }
   
   return (
-    <form>
-      <label htmlFor="username">
-        Select a username:
-      </label>
-      <input
-        type="text"
-        id="username"
-        value={username}
-        onChange={event => {
-          setUsername(event.target.value);
-        }}
-      />
-    </form>
+    <SearchForm runSearch={runSearch} />
   );
 }
 
-export default SignupForm;
+export default App;
