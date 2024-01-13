@@ -1,3 +1,8 @@
-strong {
-  color: deeppink;
+body {
+  display: grid;
+  place-content: center;
+}
+button {
+  font-size: 1.5rem;
+  padding: 16px 48px;
 }

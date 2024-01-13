@@ -1,13 +1,25 @@
 import React from 'react';
 
-function Counter() {
-  const [count, setCount] = React.useState(0);
+function App() {
+  const [user, setUser] = React.useState({ name: 'Alyssa' });
+  const [status, setStatus] = React.useState('ready');
+  const [confirmationMessage, setConfirmationMessage] = React.useState();
+
+  if (!user) {
+    return <p>{confirmationMessage}</p>;
+  }
 
   return (
-    <button onClick={() => setCount(count + 1)}>
-      Value: {count}
+    <button
+      onClick={() => {
+        setUser(null);
+        setStatus('initial');
+        setConfirmationMessage("You have been logged out.");
+      }}
+    >
+      Log Out
     </button>
   );
 }
 
-export default Counter;
+export default App;
