@@ -1,45 +1,30 @@
-body {
-  padding: 32px;
+html {
+  --spacing: 8px;
+  background: hsl(210deg, 15%, 6%);
 }
 
-.graph {
-  position: relative;
+.grid {
   display: flex;
-  justify-content: space-between;
-  margin: 0 -0.75rem;
-}
-.graph::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 0.75rem;
-  right: 0.75rem;
-  height: 3px;
-  background: black;
-  border-radius: 3px 3px 0px 0px;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: 16px;
+  background: white;
+  border-radius: 0px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.peg {
-  position: relative;
-  padding-top: 8px;
-  width: 1.5rem;
-  text-align: center;
+.row {
+  display: flex;
+  gap: var(--spacing);
 }
-.peg::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 3px;
-  height: 8px;
-  background: black;
-  border-radius: 1000px;
+
+.cell {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border: 1px solid hsl(210deg 12% 70%);
+  border-radius: 4px;
 }
-.peg:first-child {
-  transform: translateX(1.5px);
-}
-.peg:last-child {
-  transform: translateX(-1.5px);
+.cell:hover {
+  background: hsl(210deg 20% 80%);
 }

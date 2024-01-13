@@ -1,10 +1,10 @@
-import Graph from './Graph';
+import Grid from './Grid';
 
 function App() {
   return (
-    <Graph
-      from={0}
-      to={40}
+    <Grid
+      numRows={8}
+      numCols={6}
     />
   );
 }
