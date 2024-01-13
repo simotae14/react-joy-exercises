@@ -1,25 +1,7 @@
-import React from 'react';
+import Character from './Character';
 
-function App() {
-  const [user, setUser] = React.useState({ name: 'Alyssa' });
-  const [status, setStatus] = React.useState('ready');
-  const [confirmationMessage, setConfirmationMessage] = React.useState();
-
-  if (!user) {
-    return <p>{confirmationMessage}</p>;
-  }
-
+export default function App() {
   return (
-    <button
-      onClick={() => {
-        setUser(null);
-        setStatus('initial');
-        setConfirmationMessage("You have been logged out.");
-      }}
-    >
-      Log Out
-    </button>
+    <Character />
   );
 }
-
-export default App;
