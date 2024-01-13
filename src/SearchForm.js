@@ -4,23 +4,24 @@ function SearchForm({ runSearch }) {
   const [searchTerm, setSearchTerm] = React.useState('');
   
   return (
-    <div className="search-form">
+    <form
+      className="search-form"
+      onSubmit={event => {
+        event.preventDefault();
+        runSearch(searchTerm);
+      }}
+    >
       <input
         type="text"
         value={searchTerm}
         onChange={event => {
           setSearchTerm(event.target.value);
         }}
-        onKeyDown={event => {
-          if (event.key === 'Enter') {
-            runSearch(searchTerm);
-          }
-        }}
       />
-      <button onClick={() => runSearch(searchTerm)}>
+      <button>
         Search!
       </button>
-    </div>
+    </form>
   );
 }
 
