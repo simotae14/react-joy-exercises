@@ -1,22 +1,98 @@
-:root {
-  --shadow-color: 0deg 0% 25%;
-  --shadow-elevation-high:
-    drop-shadow(0.3px 0.5px 0.5px hsl(var(--shadow-color) / 0.25))
-    drop-shadow(0.9px 1.7px 1.7px hsl(var(--shadow-color) / 0.2))
-    drop-shadow(1.8px 3.7px 3.6px hsl(var(--shadow-color) / 0.15))
-    drop-shadow(3.7px 7.4px 7.3px hsl(var(--shadow-color) / 0.1))
-    drop-shadow(7.1px 14.1px 14px hsl(var(--shadow-color) / 0.05));
+/* Comment out this code to stop the ball from bouncing */
+@media (prefers-reduced-motion: no-preference) {
+  .ball {
+    animation: move 15000ms ease-in-out infinite alternate;
+  }
 }
+
 
 body {
   padding: 0px;
-  background-color: hsl(0deg, 0%, 95%);
+  margin: 0px;
+  background-color: hsl(210deg 15% 6%);
 }
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 48px;
-  padding: 16px;
+#root {
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  outline: 2px solid hsl(0deg 0% 100% / 0.5);
+}
+.ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: hsl(340deg 100% 55%);
+  border: none;
+  cursor: pointer;
+  will-change: transform;
+}
+.ball::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 40%;
+  height: 15%;
+  border-radius: 50%;
+  background: hsl(0deg 0% 100% / 0.9);
+  mix-blend-mode: overlay;
+  filter: blur(3px);
+  transform: rotate(-30deg);
+}
+
+/*
+  Animation that moves the ball randomly
+  across a 300-by-300 square.
+*/
+@keyframes move {
+  0% {
+    transform: translate(150px, 40px);
+  }
+  10% {
+    transform: translate(10px, 230px);
+  }
+  16% {
+    transform: translate(50px, 130px);
+  }
+  25% {
+    transform: translate(250px, 20px);
+  }
+  30% {
+    transform: translate(210px, 0px);
+  }
+  39% {
+    transform: translate(20px, 250px);
+  }
+  50% {
+    transform: translate(150px, 150px);
+  }
+  60% {
+    transform: translate(234px, 160px);
+  }
+  62% {
+    transform: translate(250px, 150px);
+  }
+  64.5% {
+    transform: translate(240px, 135px);
+  }
+  70% {
+    transform: translate(0px, 0px);
+  }
+  76% {
+    transform: translate(100px, 100px);
+  }
+  82% {
+    transform: translate(200px, 0px);
+  }
+  90% {
+    transform: translate(100px, 250px);
+  }
+  100% {
+    transform: translate(150px, 40px);
+  }
 }
