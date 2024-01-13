@@ -1,35 +1,48 @@
-body {
-  padding: 0px;
-  margin: 0px;
-  background-color: hsl(265deg 100% 90%);
+.art-wrapper {
+  border: 3px solid;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  height: 100vh;
-}
-label {
+svg {
   display: block;
-  font-size: 1.25rem;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .row {
   display: flex;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-input {
-  height: 3.125rem;
-  padding: 0px 14px;
-  font-size: 1.25rem;
-  font-weight: 500;
-  width: 8rem;
-  letter-spacing: 4px;
-  font-family: monospace;
+.row:not(:last-of-type) {
+  margin-bottom: 16px;
 }
-button {
-  height: 3.125rem;
-  padding: 0px 14px;
-  font-size: 1.25rem;
+.col {
+  flex: 1;
+  min-width: 155px;
+}
+input[type=range], select {
+  display: block;
+  width: 100%;
+}
+.control-heading {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+}
+.radio-wrapper {
+  display: flex;
+  gap: 24px;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 440px) {
+  .row {
+    flex-direction: column;
+  }
 }

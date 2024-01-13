@@ -1,33 +1,124 @@
 import React from 'react';
 
-const CORRECT_CODE = '123456';
+import GenerativeArt from './GenerativeArt';
 
-function TwoFactor() {
-  const [twoFactorCode, setTwoFactorCode] = React.useState("");
+function App() {
+  const [numOfLines, setNumOfLines] = React.useState(5);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const isCorrect = twoFactorCode === CORRECT_CODE;
-    window.alert(isCorrect ? 'Correct!' : 'Incorrect');
-  }
+  /*
+    Accepted values:
+      - basic
+      - monochrome
+      - froot-loops
+      - spooky
+  */
+  const [colorTheme, setColorTheme] = React.useState('basic');
+
+  /*
+    Accepted values:
+      - circles
+      - polygons
+  */
+  const [shape, setShape] = React.useState('circles');
+  
   return (
-    <form onSubmit={(event) => handleSubmit(event)}>
-      <label htmlFor="auth-code">
-        Enter authorization code:
-      </label>
-      <div className="row">
-        <input
-          id="auth-code"
-          type="text"
-          required={true}
-          maxLength={6}
-          value={twoFactorCode}
-          onChange={(event) => setTwoFactorCode(event.target.value)}
-        />
-        <button>Validate</button>
-      </div>
-    </form>
+    <>
+      <GenerativeArt
+        numOfLines={numOfLines}
+        colorTheme={colorTheme}
+        shape={shape}
+      />
+      
+      <form>
+        <fieldset>
+          <legend>Controls</legend>
+          <div className="row">
+            <div className="col">
+              <label
+                htmlFor="num-of-lines"
+                className="control-heading"
+              >
+                Number of Lines:
+              </label>
+              <input
+                id="num-of-lines"
+                type="range"
+                min="1"
+                max="15"
+                value={numOfLines}
+                onChange={(event) => setNumOfLines(event.target.value)}
+              />
+          	</div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <label
+                className="control-heading"
+                htmlFor="color-theme"
+              >
+                Color Theme:
+              </label>
+              <select 
+                id="color-theme"
+                value={colorTheme}
+                onChange={(event) => setColorTheme(event.target.value)}
+              >
+                <option value="basic">
+                  Basic
+                </option>
+                <option value="monochrome">
+                  Monochrome
+                </option>
+                <option value="froot-loops">
+                  Froot Loops
+                </option>
+                <option value="spooky">
+                  Spooky Night
+                </option>
+              </select>
+            </div>
+            <div className="col">
+              <div className="control-heading">
+                Shape:
+              </div>
+              <div className="radio-wrapper">
+                <div className="radio-option">
+                  <input 
+                    type="radio" 
+                    name="shape"
+                    id="shape-circle"
+                    value="circles"
+                    checked={shape === 'circles'}
+                    onChange={event => {
+                      setShape(event.target.value);
+                    }}
+                  />
+                  <label htmlFor='shape-circle'>
+                    Circles
+                  </label>
+                </div>
+                <div className="radio-option">
+                  <input 
+                    type="radio" 
+                    name="shape"
+                    id="shape-polygon"
+                    value="polygons"
+                    checked={shape === 'polygons'}
+                    onChange={event => {
+                      setShape(event.target.value);
+                    }}
+                  />
+                  <label htmlFor='shape-polygon'>
+                    Polygons
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </>
   );
 }
 
-export default TwoFactor;
+export default App;
