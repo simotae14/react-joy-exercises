@@ -2,40 +2,46 @@ import React from 'react';
 
 function App() {
   const [
-    selectedOption,
-    setSelectedOption
-  ] = React.useState('red');
+    value,
+    setValue
+  ] = React.useState('no');
 
   return (
     <form>
       <fieldset>
-        <legend>
-          What is your favourite color?
-        </legend>
+        <legend>Do you agree?</legend>
         
-        <select
-          value={selectedOption}
+        <input
+          type="radio"
+          name="agreed-to-terms"
+          id="agreed-yes"
+          value="yes"
+          checked={value === "yes"}
           onChange={event => {
-            setSelectedOption(event.target.value)
+            setValue(event.target.value)
           }}
-        >
-          <option value="red">
-            Red
-          </option>
-          <option value="green">
-            Green
-          </option>
-          <option value="blue">
-            Blue
-          </option>
-        </select>
-      </fieldset>
-      
-      <p>
-        Selected value:
+        />
+        {' '}
+        <label htmlFor="agreed-yes">
+          Yes
+        </label>
         <br />
-        {selectedOption}
-      </p>
+        
+        <input
+          type="radio"
+          name="agreed-to-terms"
+          id="agreed-no"
+          value="no"
+          checked={value === "no"}
+          onChange={event => {
+            setValue(event.target.value)
+          }}
+        />
+        {' '}
+        <label htmlFor="agreed-no">
+          No
+        </label>
+      </fieldset>
     </form>
   );
 }
