@@ -1,7 +1,7 @@
-import Character from './Character';
+import Counter from './Counter';
 
-export default function App() {
-  return (
-    <Character />
-  );
+function App() {
+  return <Counter />;
 }
+
+export default App;
