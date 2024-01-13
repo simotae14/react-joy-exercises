@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SearchForm() {
-  const [searchTerm, setSearchTerm] = React.useState('cats');
+  const [searchTerm, setSearchTerm] = React.useState('cats!');
   
   return (
     <>
@@ -18,9 +18,16 @@ function SearchForm() {
           }}
         />
       </form>
+
       <p>
         Search term: {searchTerm}
       </p>
+
+      <button
+        onClick={() => setSearchTerm(Math.random())}
+      >
+        Click me
+      </button>
     </>
   );
 }
