@@ -1,39 +1,35 @@
-fieldset {
-  margin-bottom: 24px;
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: hsl(265deg 100% 90%);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  height: 100vh;
+}
+label {
+  display: block;
+  font-size: 1.25rem;
 }
 .row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 4px;
 }
-.row:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-.col {
-  flex: 1;
-  min-width: 155px;
-}
-input:not([type=checkbox]), select {
-  display: block;
-  width: 100%;
-  height: 2.5rem;
-  padding: 0px 6px;
-}
-input[type=checkbox] {
-  width: 20px;
-  height: 20px;
+input {
+  height: 3.125rem;
+  padding: 0px 14px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  width: 8rem;
+  letter-spacing: 4px;
+  font-family: monospace;
 }
 button {
-  display: block;
-  padding: 8px 32px;
-  min-width: 50%;
-  font-size: 1.125rem;
-  margin: 0 auto;
-}
-
-.country-display {
-  background: hsl(50deg 90% 90%);
-  border-radius: 4px;
-  padding: 20px 24px;
-  margin-bottom: 32px;
+  height: 3.125rem;
+  padding: 0px 14px;
+  font-size: 1.25rem;
 }

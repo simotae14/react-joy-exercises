@@ -1,51 +1,33 @@
 import React from 'react';
 
-import { COUNTRIES } from './data';
+const CORRECT_CODE = '123456';
 
-const countryNames = Object.entries(COUNTRIES);
+function TwoFactor() {
+  const [twoFactorCode, setTwoFactorCode] = React.useState("");
 
-function App() {
-  const [
-    country,
-    setCountry,
-  ] = React.useState('');
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    const isCorrect = twoFactorCode === CORRECT_CODE;
+    window.alert(isCorrect ? 'Correct!' : 'Incorrect');
+  }
   return (
-    <form>
-      <fieldset>
-        <legend>Shipping Info</legend>
-        <label htmlFor="country">
-          Country:
-        </label>
-        <select
-          id="country"
-          name="country"
-          value={country}
-          onChange={event => {
-            setCountry(event.target.value)
-          }}
-          required
-        >
-          <option value="">- Select Country -</option>
-          <optgroup label="Countries">
-          {
-            countryNames.map(([id, label]) => (
-              <option key={id} value={id}>
-                {label}
-              </option>
-            ))
-          }
-          </optgroup>
-        </select>
-      </fieldset>
-
-      <p className="country-display">
-        Selected country: {COUNTRIES[country]}
-      </p>
-
-      <button>Submit</button>
+    <form onSubmit={(event) => handleSubmit(event)}>
+      <label htmlFor="auth-code">
+        Enter authorization code:
+      </label>
+      <div className="row">
+        <input
+          id="auth-code"
+          type="text"
+          required={true}
+          maxLength={6}
+          value={twoFactorCode}
+          onChange={(event) => setTwoFactorCode(event.target.value)}
+        />
+        <button>Validate</button>
+      </div>
     </form>
   );
 }
 
-export default App;
+export default TwoFactor;
