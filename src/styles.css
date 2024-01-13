@@ -1,20 +1,45 @@
-section {
+body {
+  padding: 32px;
+}
+
+.graph {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px dashed hsl(0deg 0% 75%);
-  padding: 24px;
-  margin-bottom: 32px;
+  justify-content: space-between;
+  margin: 0 -0.75rem;
 }
-.star-wrapper {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
+.graph::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 3px;
+  background: black;
+  border-radius: 3px 3px 0px 0px;
 }
-.gold-star {
-  width: 32px;
-  height: 32px;
+
+.peg {
+  position: relative;
+  padding-top: 8px;
+  width: 1.5rem;
+  text-align: center;
 }
-h2 {
-  margin-bottom: 16px;
+.peg::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 3px;
+  height: 8px;
+  background: black;
+  border-radius: 1000px;
+}
+.peg:first-child {
+  transform: translateX(1.5px);
+}
+.peg:last-child {
+  transform: translateX(-1.5px);
 }
