@@ -1,64 +1,37 @@
-import ProfileCard from './ProfileCard';
-
-const userProfiles = [
-  {
-    id: 'penelope-june-p1oer6',
-    imageSrc: 'https://sandpack-bundler.vercel.app/img/sparkly-cat.png',
-    imageAlt: 'A cat with illustrated groovy glasses and sparkles/rainbows',
-    name: 'Penelope “bric-a-brac” June',
-    joinDate: 'January 21st, 2022',
-    badges: [
-      {
-        slug: 'ping-pong',
-        label: '🏓  Athletic',
-      },
-      {
-        slug: 'photographer',
-        label: '📸 Photographer',
-      },
-      {
-        slug: 'olympic-medalist',
-        label: '🏅 Olympic Medalist',
-      },
-    ]
-  },
-  {
-    id: 'baron-montgomerie-9si39d',
-    imageSrc: 'https://sandpack-bundler.vercel.app/img/fancy-cat.png',
-    imageAlt: 'A very distinguished gentleman cat, with top hat and monocle',
-    name: 'Baron Montgomerie of Eglinton III',
-    joinDate: 'August 3rd, 1924',
-    badges: []
-  },
-  {
-    id: 'joan-clawmaker-5xch41',
-    imageSrc: 'https://sandpack-bundler.vercel.app/img/punk-cat.png',
-    imageAlt: 'A punk rock cat with earrings and a pink mohawk',
-    name: 'Joan Clawmaker',
-    joinDate: 'October 15th, 2019',
-    badges: [
-      {
-        slug: 'notable',
-        label: '⭐️ Notable',
-      },
-      {
-        slug: 'musician',
-        label: '🎸 Musician',
-      },
-    ]
-  },
-]
+import StarRating from './StarRating';
 
 function App() {
   return (
-    <main className="app">
-      {userProfiles.map(profile => (
-        <ProfileCard
-          key={profile.id}
-          profile={profile}
-        />
-      ))}
-    </main>
+    <>
+      <section>
+        <h2>Winter's Orbit</h2>
+        <p>
+          Rating: 5 / 5
+        </p>
+        <StarRating rating={5} />
+      </section>
+      <section>
+        <h2>Dial D for Deadman</h2>
+        <p>
+          Rating: 4 / 5
+        </p>
+        <StarRating rating={4} />
+      </section>
+      <section>
+        <h2>Words And Things</h2>
+        <p>
+          Rating: 0 / 5
+        </p>
+        <StarRating rating={0} />
+      </section>
+      <section>
+        <h2>The Galaxy, And The Ground Within</h2>
+        <p>
+          Rating: 5 / 5
+        </p>
+        <StarRating rating={5} />
+      </section>
+    </>
   );
 }
 
