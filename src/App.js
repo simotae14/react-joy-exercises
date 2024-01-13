@@ -1,11 +1,12 @@
-import Grid from './Grid';
+import Sidenote from './components/Sidenote';
 
 function App() {
   return (
-    <Grid
-      numRows={8}
-      numCols={6}
-    />
+    <>
+      <Sidenote title="I'm a sidenote!">
+        I contain some text!
+      </Sidenote>
+    </>
   );
 }
 
