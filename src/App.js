@@ -1,42 +1,49 @@
 import React from 'react';
 
-import Button from './Button';
-
 function App() {
-  const [hasAgreed, setHasAgreed] = React.useState(false);
+  const [colors, setColors] = React.useState([
+    '#FFD500',
+    '#FF0040',
+  ]);
+  
+  const colorStops = colors.join(', ');
+  const backgroundImage = `linear-gradient(${colorStops})`;
   
   return (
-    <div className="box">
-      <p>
-        Are you sure you want to continue?
-      </p>
-      <label htmlFor="confirm-checkbox">
-        <span className="required">*</span>
-        <input
-          id="confirm-checkbox"
-          type="checkbox"
-          value={hasAgreed}
-          onChange={() => setHasAgreed(!hasAgreed)}
-        />
-        <span>
-          I agree with <a href="/terms">the terms</a>.
-        </span>
-      </label>
-      <div className="actions">
-        <Button
-          variant="secondary"
-          isEnabled={true}
-        >
-          Cancel
-        </Button>
-        <Button
-          variant="primary"
-          isEnabled={hasAgreed}
-        >
-          Confirm
-        </Button>
-      </div>
-    </div>
+    <>
+      <div
+        className="gradient-preview"
+        style={{
+          backgroundImage,
+        }}
+      />
+      
+      <form>
+        {colors.map((color, index) => {
+          const colorId = `color-${index}`;
+          
+          return (
+            <div key={colorId} className="color-row">
+              <label htmlFor={colorId}>
+                Color {index + 1}:
+              </label>
+              <input
+                id={colorId}
+                type="color"
+                value={color}
+                onChange={event => {
+                  // fix the mutation bug
+                  const nextColors = [...colors];
+                  nextColors[index] = event.target.value;
+                  
+                  setColors(nextColors);
+                }}
+              />
+            </div>
+          );
+        })}
+      </form>
+    </>
   );
 }
 
