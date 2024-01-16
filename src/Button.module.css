@@ -27,3 +27,8 @@
   background-color: hsl(15deg 60% 90% / 0.5);
   color: black;
 }
+
+.wrapper:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
