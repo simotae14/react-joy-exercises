@@ -5,6 +5,7 @@ body {
   background: hsl(250deg 100% 96%);
   display: grid;
   place-content: center;
+  overflow: hidden;
 }
 ul {
   list-style-type: none;
