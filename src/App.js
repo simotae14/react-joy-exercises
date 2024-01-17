@@ -3,29 +3,30 @@ function App() {
   const [colors, setColors] = React.useState([
     '#FFD500',
     '#FF0040',
+    '#FF0040',
+    '#FF0040',
+    '#FF0040',
   ]);
-  
-  const colorStops = colors.join(', ');
+  const [numOfVisibleColors, setNumOfVisibleColors] = React.useState(2);
+  const visibleColors = colors.slice(0, numOfVisibleColors)
+  const colorStops = visibleColors.join(', ');
   const backgroundImage = `linear-gradient(${colorStops})`;
 
   const handleOnRemove = () => {
-    if (colors.length <= 2) {
+    if (numOfVisibleColors <= 2) {
       window.alert('There is a minimum of 2 colors');
       return;
     }
-    const newColors = [...colors];
-    newColors.pop();
-    setColors(newColors);
+    
+    setNumOfVisibleColors(numOfVisibleColors - 1);
   }
 
   const handleOnAdd = () => {
-    if (colors.length >= 5) {
+    if (numOfVisibleColors >= 5) {
       window.alert('There is a maximum of 5 colors');
       return;
     }
-    const newColors = [...colors];
-    newColors.push('#FF0000');
-    setColors(newColors);
+    setNumOfVisibleColors(numOfVisibleColors + 1);
   }
 
   const handleOnChange = (event, index) => {
@@ -53,7 +54,7 @@ function App() {
       />
       
       <div className="colors">
-        {colors.map((color, index) => {
+        {visibleColors.map((color, index) => {
           const colorId = `color-${index}`;
           return (
             <div key={colorId} className="color-wrapper">
