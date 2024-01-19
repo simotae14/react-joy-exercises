@@ -1,21 +1,44 @@
 import React from 'react';
 
-import BigCoin from './BigCoin';
+import AddNewItemForm from './AddNewItemForm';
 
 function App() {
-  const [numOfCoins, setNumOfCoins] = React.useState(0);
+  const [shoppingList, setShoppingList] = React.useState([
+    {
+      id: 123,
+      label: "Avocados"
+    },
+    {
+      id: 456,
+      label: "Broccoli"
+    },
+    {
+      id: 145,
+      label: "Carrots"
+    },
+  ]);
+
+  const handleAddItem = (label) => {
+    const newItem = {
+      label,
+      id: Math.random(),
+    }
+
+    const nextItems = [...shoppingList, newItem];
+    setShoppingList(nextItems);
+  } 
   return (
     <div className="wrapper">
-      <main>
-        <BigCoin
-          numOfCoins={numOfCoins}
-          setNumOfCoins={setNumOfCoins}
-        />
-      </main>
-      <footer>
-        Your coin balance:
-        <strong>{numOfCoins}</strong>
-      </footer>
+      <div className="list-wrapper">
+        <ol className="shopping-list">
+          {
+            shoppingList.map(({ id, label }) => (<li key={id}>{label}</li>))
+          }
+        </ol>
+      </div>
+      <AddNewItemForm
+        handleAddItem={handleAddItem}
+      />
     </div>
   );
 }
