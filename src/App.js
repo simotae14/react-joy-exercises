@@ -1,25 +1,22 @@
 import React from 'react';
 
-import SearchForm from './SearchForm';
-import SearchResults from './SearchResults';
+import BigCoin from './BigCoin';
 
 function App() {
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const [numOfCoins, setNumOfCoins] = React.useState(0);
   return (
-    <>
-      <header>
-        <a className="logo" href="/">
-          Wanda’s Fruits
-        </a>
-        <SearchForm 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
-      </header>
+    <div className="wrapper">
       <main>
-        <SearchResults searchTerm={searchTerm} />
+        <BigCoin
+          numOfCoins={numOfCoins}
+          setNumOfCoins={setNumOfCoins}
+        />
       </main>
-    </>
+      <footer>
+        Your coin balance:
+        <strong>{numOfCoins}</strong>
+      </footer>
+    </div>
   );
 }
 
