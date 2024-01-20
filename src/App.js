@@ -1,32 +1,32 @@
 import React from 'react';
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [comment, setComment] = React.useState('');
   
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          
-          // Do something with `name` here
         }}
       >
-        <label htmlFor="name-field">
-          Name:
+        <label htmlFor="comment-field">
+          Share your experiences:
         </label>
-        <input
-          id="name-field"
-          value={name}
+        <textarea
+          id="comment-field"
+          value={comment}
           onChange={event => {
-            setName(event.target.value);
+            setComment(
+              event.target.value
+            );
           }}
         />
       </form>
       
       <p>
         <strong>Current value:</strong>
-        {name || '(empty)'}
+        {comment || '(empty)'}
       </p>
     </>
   );
