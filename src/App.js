@@ -1,10 +1,7 @@
 import React from 'react';
 
 function App() {
-  const [
-    language,
-    setLanguage
-  ] = React.useState('english');
+  const [optIn, setOptIn] = React.useState(false);
 
   return (
     <>
@@ -13,46 +10,23 @@ function App() {
           event.preventDefault();
         }}
       >
-        <fieldset>
-          <legend>
-            Select language:
-          </legend>
-          
-          {VALID_LANGUAGES.map(option => (
-            <div key={option}>
-              <input
-                type="radio"
-                name="current-language"
-                id={option}
-                value={option}
-                checked={option === language}
-                onChange={event => {
-                  setLanguage(event.target.value);
-                }}
-              />
-              <label htmlFor={option}>
-                {option}
-              </label>
-            </div>
-          ))}
-        </fieldset>
+        <input
+          type="checkbox"
+          id="opt-in-checkbox"
+          checked={optIn}
+          onChange={event => {
+            setOptIn(event.target.checked);
+          }}
+        />
+        <label htmlFor="opt-in-checkbox">
+          <strong>Yes,</strong> I would like to join the newsletter.
+        </label>
       </form>
-      
       <p>
-        <strong>Selected language:</strong>
-        {language || "undefined"}
+        <strong>Opt in:</strong> {optIn.toString()}
       </p>
     </>
   );
 }
-
-const VALID_LANGUAGES = [
-  'mandarin',
-  'spanish',
-  'english',
-  'hindi',
-  'arabic',
-  'portugese',
-];
 
 export default App;

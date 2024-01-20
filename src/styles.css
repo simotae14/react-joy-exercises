@@ -1,12 +1,12 @@
 form {
-  padding: 16px;
-  background: hsl(0deg 0% 0% / 0.05);
-  border-radius: 8px;
-}
-fieldset div {
+  --bg: hsl(0deg 0% 95%);
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 8px;
+  align-items: center;
+  padding: 16px;
+  background: var(--bg);
+  border-radius: 8px;
 }
 p {
   margin-top: 2rem;
@@ -14,7 +14,4 @@ p {
 }
 p strong {
   display: block;
-}
-label {
-  text-transform: capitalize;
 }
