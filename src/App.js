@@ -1,7 +1,10 @@
 import React from 'react';
 
 function App() {
-  const [hasAgreed, setHasAgreed] = React.useState();
+  const [
+    language,
+    setLanguage
+  ] = React.useState('english');
 
   return (
     <>
@@ -12,46 +15,44 @@ function App() {
       >
         <fieldset>
           <legend>
-            Do you agree?
+            Select language:
           </legend>
           
-          <input
-            type="radio"
-            name="agreed-to-terms"
-            id="agree-yes"
-            value="yes"
-            checked={hasAgreed === "yes"}
-            onChange={event => {
-              setHasAgreed(event.target.value)
-            }}
-          />
-          <label htmlFor="agree-yes">
-            Yes
-          </label>
-          <br />
-          
-          <input
-            type="radio"
-            name="agreed-to-terms"
-            id="agree-no"
-            value="no"
-            checked={hasAgreed === "no"}
-            onChange={event => {
-              setHasAgreed(event.target.value)
-            }}
-          />
-          <label htmlFor="agree-no">
-            No
-          </label>
+          {VALID_LANGUAGES.map(option => (
+            <div key={option}>
+              <input
+                type="radio"
+                name="current-language"
+                id={option}
+                value={option}
+                checked={option === language}
+                onChange={event => {
+                  setLanguage(event.target.value);
+                }}
+              />
+              <label htmlFor={option}>
+                {option}
+              </label>
+            </div>
+          ))}
         </fieldset>
       </form>
       
       <p>
-        <strong>Has agreed:</strong>
-        {hasAgreed || "undefined"}
+        <strong>Selected language:</strong>
+        {language || "undefined"}
       </p>
     </>
   );
 }
+
+const VALID_LANGUAGES = [
+  'mandarin',
+  'spanish',
+  'english',
+  'hindi',
+  'arabic',
+  'portugese',
+];
 
 export default App;

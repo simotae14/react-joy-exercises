@@ -1,3 +1,13 @@
+form {
+  padding: 16px;
+  background: hsl(0deg 0% 0% / 0.05);
+  border-radius: 8px;
+}
+fieldset div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 p {
   margin-top: 2rem;
   text-align: center;
@@ -5,14 +15,6 @@ p {
 p strong {
   display: block;
 }
-form {
-  padding: 16px;
-  background: hsl(0deg 0% 0% / 0.05);
-  border-radius: 8px;
-}
 label {
-  font-size: 1rem;
-}
-input {
-  margin-right: 8px;
+  text-transform: capitalize;
 }
