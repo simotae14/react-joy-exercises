@@ -1,58 +1,34 @@
 import React from 'react';
 
 function App() {
-  const [
-    includeFooter,
-    setIncludeFooter,
-  ] = React.useState(false);
-
+  const [name, setName] = React.useState('');
+  
   return (
     <>
-      <h1>Some Application</h1>
-      <form className="footer-toggle-wrapper">
-        <input
-          type="checkbox"
-          id="footer-toggle"
-          checked={includeFooter}
-          onChange={(event) => {
-            setIncludeFooter(event.target.checked);
-          }}
-        />
-        <label htmlFor="footer-toggle">
-          Toggle Footer
-        </label>
-      </form>
-      {includeFooter && <Footer />}
-    </>
-  );
-}
-
-function Footer() {
-  const [
-    backgroundColor,
-    setBackgroundColor,
-  ] = React.useState('#232538');
-
-  return (
-    <footer style={{ backgroundColor }}>
-      <form>
-        <label htmlFor="bg-picker">
-          Tweak background:
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          
+          // Do something with `name` here
+        }}
+      >
+        <label htmlFor="name-field">
+          Name:
         </label>
         <input
-          type="color"
-          id="bg-picker"
-          value={backgroundColor}
-          onChange={(event) => {
-            setBackgroundColor(event.target.value);
+          id="name-field"
+          value={name}
+          onChange={event => {
+            setName(event.target.value);
           }}
         />
       </form>
+      
       <p>
-        © Some Application Inc., 1998-present. All
-        Rights Reserved.
+        <strong>Current value:</strong>
+        {name || '(empty)'}
       </p>
-    </footer>
+    </>
   );
 }
 
