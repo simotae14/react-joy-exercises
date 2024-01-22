@@ -1,7 +1,7 @@
 import React from 'react';
 
 function App() {
-  const [volume, setVolume] = React.useState(50);
+  const [color, setColor] = React.useState('#FF0000');
   
   return (
     <>
@@ -10,24 +10,22 @@ function App() {
           event.preventDefault();
         }}
       >
-        <label htmlFor="volume-slider">
-          Audio volume:
+        <label htmlFor="color-picker">
+          Select a color:
         </label>
         <input
-          type="range"
-          id="volume-slider"
-          min={0}
-          max={100}
-          value={volume}
+          type="color"
+          id="color-picker"
+          value={color}
           onChange={event => {
-            setVolume(event.target.value);
+            setColor(event.target.value);
           }}
         />
       </form>
       
       <p>
         <strong>Current value:</strong>
-        {volume}
+        {color}
       </p>
     </>
   );
