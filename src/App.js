@@ -1,21 +1,8 @@
 import React from 'react';
 
-const initialToppings = {
-  anchovies: false,
-  chicken: false,
-  tomatoes: false,
-}
-
 function App() {
-  const [
-    pizzaToppings,
-    setPizzaToppings
-  ] = React.useState(initialToppings);
+  const [age, setAge] = React.useState('0-18');
 
-  // Get a list of all toppings.
-  // ['anchovies', 'chicken', 'tomato'];
-  const toppingsList = Object.keys(initialToppings);
-  
   return (
     <>
       <form
@@ -23,41 +10,35 @@ function App() {
           event.preventDefault();
         }}
       >
-        <fieldset>
-          <legend>
-            Select toppings:
-          </legend>
-          
-          {/*
-            Iterate over those toppings, and
-            create a checkbox for each one:
-          */}
-          {toppingsList.map(option => (
-            <div key={option}>
-              <input
-                type="checkbox"
-                id={option}
-                value={option}
-                checked={pizzaToppings[option] === true}
-                onChange={event => {
-                  setPizzaToppings({
-                    ...pizzaToppings,
-                    [option]: event.target.checked,
-                  })
-                }}
-              />
-              <label htmlFor={option}>
-                {option}
-              </label>
-            </div>
-          ))}
-        </fieldset>
+        <label htmlFor="age-select">
+          How old are you?
+        </label>
+        
+        <select
+          id="age-select"
+          value={age}
+          onChange={event => {
+            setAge(event.target.value)
+          }}
+        >
+          <option value="0-18">
+            18 and under
+          </option>
+          <option value="19-39">
+            19 to 39
+          </option>
+          <option value="40-64">
+            40 to 64
+          </option>
+          <option value="65-infinity">
+            65 and over
+          </option>
+        </select>
       </form>
+      
       <p>
-        <strong>Stored state:</strong>
-      </p>
-      <p className="output">
-        {JSON.stringify(pizzaToppings, null, 2)}
+        <strong>Selected value:</strong>
+        {age}
       </p>
     </>
   );
