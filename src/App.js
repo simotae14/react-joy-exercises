@@ -1,7 +1,29 @@
 import React from 'react';
 
+// The source of truth!
+const OPTIONS = [
+  {
+    label: '18 and under',
+    value: '0-18'
+  },
+  {
+    label: '19 to 39',
+    value: '19-39'
+  },
+  {
+    label: '40 to 64',
+    value: '40-64'
+  },
+  {
+    label: '65 and over',
+    value: '65-infinity'
+  },
+];
+
 function App() {
-  const [age, setAge] = React.useState('0-18');
+  // Grab the first option from the array.
+  // Set its value into state:
+  const [age, setAge] = React.useState(OPTIONS[0].value);
 
   return (
     <>
@@ -21,18 +43,18 @@ function App() {
             setAge(event.target.value)
           }}
         >
-          <option value="0-18">
-            18 and under
-          </option>
-          <option value="19-39">
-            19 to 39
-          </option>
-          <option value="40-64">
-            40 to 64
-          </option>
-          <option value="65-infinity">
-            65 and over
-          </option>
+          {/*
+            Iterate over that array, to create
+            the <option> tags dynamically:
+          */}
+          {OPTIONS.map(option => (
+            <option
+              key={option.value}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))}
         </select>
       </form>
       
