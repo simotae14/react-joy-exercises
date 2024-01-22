@@ -1,8 +1,21 @@
 import React from 'react';
 
-function App() {
-  const [optIn, setOptIn] = React.useState(false);
+const initialToppings = {
+  anchovies: false,
+  chicken: false,
+  tomatoes: false,
+}
 
+function App() {
+  const [
+    pizzaToppings,
+    setPizzaToppings
+  ] = React.useState(initialToppings);
+
+  // Get a list of all toppings.
+  // ['anchovies', 'chicken', 'tomato'];
+  const toppingsList = Object.keys(initialToppings);
+  
   return (
     <>
       <form
@@ -10,20 +23,41 @@ function App() {
           event.preventDefault();
         }}
       >
-        <input
-          type="checkbox"
-          id="opt-in-checkbox"
-          checked={optIn}
-          onChange={event => {
-            setOptIn(event.target.checked);
-          }}
-        />
-        <label htmlFor="opt-in-checkbox">
-          <strong>Yes,</strong> I would like to join the newsletter.
-        </label>
+        <fieldset>
+          <legend>
+            Select toppings:
+          </legend>
+          
+          {/*
+            Iterate over those toppings, and
+            create a checkbox for each one:
+          */}
+          {toppingsList.map(option => (
+            <div key={option}>
+              <input
+                type="checkbox"
+                id={option}
+                value={option}
+                checked={pizzaToppings[option] === true}
+                onChange={event => {
+                  setPizzaToppings({
+                    ...pizzaToppings,
+                    [option]: event.target.checked,
+                  })
+                }}
+              />
+              <label htmlFor={option}>
+                {option}
+              </label>
+            </div>
+          ))}
+        </fieldset>
       </form>
       <p>
-        <strong>Opt in:</strong> {optIn.toString()}
+        <strong>Stored state:</strong>
+      </p>
+      <p className="output">
+        {JSON.stringify(pizzaToppings, null, 2)}
       </p>
     </>
   );
