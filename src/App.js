@@ -14,19 +14,22 @@ function App() {
   }
 
   return (
-    <>
-      <LoginForm
-        isLoggedIn={isLoggedIn}
-        handleLogin={handleLogin}
-      />
-      {isLoggedIn && (
-        <button
-          onClick={(event) => {
-            setIsLoggedIn(false);
-          }}
-        >
-          Log Out
-        </button>
+    <>      
+      {isLoggedIn ? (
+        <>
+          <p>You're already logged in!</p>
+          <button
+            onClick={(event) => {
+              setIsLoggedIn(false);
+            }}
+          >
+            Log Out
+          </button>
+        </>
+      ) : (
+        <LoginForm
+          handleLogin={handleLogin}
+        />
       )}
     </>
   );
