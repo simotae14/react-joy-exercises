@@ -1,38 +1,57 @@
 import React from 'react';
 
-import LoginForm from './LoginForm';
+const INITIAL_STATE = { name: 'Ivy' };
+window.stateValues = [INITIAL_STATE];
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  function handleLogin(event) {
-    // NOTE: In a real application, we'd perform a
-    // network request here, to validate the login.
-    // We'll see how to do this later in this module.
-    event.preventDefault();
-    setIsLoggedIn(true);
-  }
+  const [user, setUser] = React.useState(
+    INITIAL_STATE
+  );
 
   return (
-    <>      
-      {isLoggedIn ? (
-        <>
-          <p>You're already logged in!</p>
-          <button
-            onClick={(event) => {
-              setIsLoggedIn(false);
-            }}
-          >
-            Log Out
-          </button>
-        </>
-      ) : (
-        <LoginForm
-          handleLogin={handleLogin}
-        />
-      )}
+    <>
+      <button
+        onClick={() => {
+          const nextUser = {
+            name: generateNewName(),
+          };
+          
+          setUser(nextUser);
+          window.stateValues.push(nextUser);
+        }}
+      >
+        Edit name
+      </button>
+
+      <div>{JSON.stringify(user, null, 2)}</div>
     </>
   );
+}
+
+const NAMES = [
+  'Kai',
+  'Ivy',
+  'Ava',
+  'Leo',
+  'Ada',
+  'Mae',
+  'Mia',
+  'Anna',
+  'Cal',
+  'Ram',
+  'Sri',
+  'Sai',
+  'Adi',
+  'Jay',
+  'Ren',
+  'Aoi',
+  'Ryo',
+];
+
+function generateNewName() {
+  return NAMES[
+    Math.floor(Math.random() * NAMES.length)
+  ];
 }
 
 export default App;
