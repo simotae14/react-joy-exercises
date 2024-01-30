@@ -1,8 +1,18 @@
 import React from 'react';
 
-try {
-  React.useId();
-} catch (err) {
-  // Swallowing an error that occurs because
-  // of the warning shown in the console.
+import TextInput from './TextInput';
+
+function App() {
+  return (
+    <>
+      <TextInput label="Name" />
+      <TextInput
+        id="my-email"
+        label="Email"
+        type="email"
+      />
+    </>
+  );
 }
+
+export default App;
