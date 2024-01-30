@@ -23,21 +23,7 @@ function App() {
   return (
     <>
       <form>
-        {showSearchField && (
-          <div className="search-field-wrapper">
-            <label
-              htmlFor={searchId}
-            >
-              <VisuallyHidden>
-                Search
-              </VisuallyHidden>
-            </label>
-            <input
-              id={searchId}
-              className="search-field"
-            />
-          </div>
-        )}
+        {showSearchField && <SearchField />}
         <button
           className="search-toggle-button"
           onClick={handleToggleSearch}
@@ -50,6 +36,25 @@ function App() {
       </form>
     </>
   );
+}
+
+function SearchField() {
+  const searchId = React.useId();
+  return (
+    <div className="search-field-wrapper">
+      <label
+        htmlFor={searchId}
+      >
+        <VisuallyHidden>
+          Search
+        </VisuallyHidden>
+      </label>
+      <input
+        id={searchId}
+        className="search-field"
+      />
+    </div>
+  )
 }
 
 export default App;
