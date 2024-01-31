@@ -1,21 +1,14 @@
 import React from 'react';
 
-import VideoPlayer from './VideoPlayer';
+import MediaPlayer from './MediaPlayer'
+
+const DEMO_SONG_SRC = 'https://storage.googleapis.com/joshwcomeau/bvrnout-take-it-easy-short.mp3';
 
 function App() {
   return (
-    <main>
-      <VideoPlayer
-        src="https://sandpack-bundler.vercel.app/videos/snowstorm.mp4"
-        caption="Snow falls by a pine tree and house"
-      />
-      <dl>
-        <dt>Filmed by</dt>
-        <dd>Karolina Grabowska</dd>
-        <dt>Licensed under</dt>
-        <dd>Creative Commons Zero (CC0)</dd>
-      </dl>
-    </main>
+    <>
+      <MediaPlayer src={DEMO_SONG_SRC} />
+    </>
   );
 }
 
