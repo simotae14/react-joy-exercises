@@ -1,57 +1,63 @@
+html, body, #root {
+  height: 100%;
+}
+
 body {
-  background: hsl(250deg 20% 15%);
-  color: white;
+  padding: 0px;
+  background: hsl(0deg 0% 95%);
 }
 
-main {
-  max-width: 480px;
-  margin: 0 auto;
+.wrapper {
+  
 }
 
-h1 {
-  margin: 1rem 0 2rem;
-}
-p {
-  margin-bottom: 32px;
-}
-
-video {
-  display: block;
-  width: 100%;
-  border-radius: 4px;
-}
-
-figure {
-  border-radius: 8px;
-  padding: 4px;
-  background: hsl(250deg 15% 25%);
-}
-
-figcaption {
-  font-size: 0.875rem;
-  text-align: center;
-  margin-top: 8px;
-}
-
-.actions {
+.media-player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 16px;
-  padding: 8px 0;
-  margin-top: 8px;
+  padding: 8px;
+  border-top: 1px solid hsl(0deg 0% 85%);
+  background: white;
 }
 
-dl {
+.media-player img {
+  width: 64px;
+  border-radius: 8px;
+}
+
+.summary {
+  flex: 1;
+  min-width: 0px;
+}
+.summary h2 {
+  line-height: 1em;
+  font-size: 1.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.summary p {
+  font-size: 1rem;
+  color: hsl(0deg 0% 33%);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-player button {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: hsl(0deg 0% 10%);
+  border: none;
+  color: white;
+  border-radius: 50%;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  padding: 16px;
-  margin-top: 8px;
-  gap: 4px 16px;
-}
-dt {
-  text-align: right;
-  color: hsl(250deg 15% 75%);
-}
-dd {
-  font-weight: 500;
+  place-content: center;
+  cursor: pointer;
 }
