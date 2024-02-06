@@ -1,13 +1,13 @@
 import React from 'react';
 
-import MediaPlayer from './MediaPlayer'
-
-const DEMO_SONG_SRC = 'https://storage.googleapis.com/joshwcomeau/bvrnout-take-it-easy-short.mp3';
+import Counter from './Counter'
 
 function App() {
+  const [name, setName] = React.useState('Yuka');
+  
   return (
     <>
-      <MediaPlayer src={DEMO_SONG_SRC} />
+      <Counter name={name}/>
     </>
   );
 }
