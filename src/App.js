@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Counter from './Counter'
+import SignupForm from './SignupForm'
 
 function App() {
-  const [name, setName] = React.useState('Yuka');
-  
   return (
-    <>
-      <Counter name={name}/>
-    </>
+    <div>
+      <SignupForm />
+    </div>
   );
 }
 
