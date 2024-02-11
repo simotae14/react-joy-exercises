@@ -1,29 +1,31 @@
 import React from 'react';
 
-function MouseCoords() {
+function WindowSize() {
   const [
-    mousePosition,
-    setMousePosition
-  ] = React.useState({ x: 0, y: 0 });
+    windowDimensions,
+    setWindowDimensions,
+  ] = React.useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   React.useEffect(() => {
-    function handleMouseMove(event) {
-      setMousePosition({
-        x: event.clientX,
-        y: event.clientY
+    function handleWindowResize() {
+      setWindowDimensions({
+        width:window.innerWidth,
+        height: window.innerHeight,
       });
     }
-
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleWindowResize);
   }, []);
   
   return (
     <div className="wrapper">
       <p>
-        {mousePosition.x} / {mousePosition.y}
+        {windowDimensions.width} / {windowDimensions.height}
       </p>
     </div>
   );
 }
 
-export default MouseCoords;
+export default WindowSize;
