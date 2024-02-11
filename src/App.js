@@ -1,41 +1,29 @@
 import React from 'react';
 
-function App() {
+function MouseCoords() {
   const [
-    searchTerm,
-    setSearchTerm,
-  ] = React.useState('');
-
-  const inputRef = React.useRef();
+    mousePosition,
+    setMousePosition
+  ] = React.useState({ x: 0, y: 0 });
 
   React.useEffect(() => {
-    // Uncomment me!
-    inputRef.current.focus();
-  }, []);
+    function handleMouseMove(event) {
+      setMousePosition({
+        x: event.clientX,
+        y: event.clientY
+      });
+    }
 
+    window.addEventListener('mousemove', handleMouseMove);
+  }, []);
+  
   return (
-    <>
-      <header>
-        <img
-          className="logo"
-          alt="Foobar"
-          src="https://sandpack-bundler.vercel.app/img/foogle.svg"
-        />
-      </header>
-      <main>
-        <form>
-          <input
-            ref={inputRef}
-            value={searchTerm}
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-            }}
-          />
-          <button>Search</button>
-        </form>
-      </main>
-    </>
+    <div className="wrapper">
+      <p>
+        {mousePosition.x} / {mousePosition.y}
+      </p>
+    </div>
   );
 }
 
-export default App;
+export default MouseCoords;
