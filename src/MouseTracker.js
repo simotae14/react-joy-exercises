@@ -5,29 +5,38 @@ function MouseTracker() {
     x: 0,
     y: 0,
   });
+  const [isEnabled, setIsEnabled] = React.useState(true);
 
   React.useEffect(() => {
-    // Effect logic:
-    function handleMouseMove(event) {
-      console.log('move');
-      setMousePosition({
-        x: event.clientX,
-        y: event.clientY,
-      });
+    if (isEnabled) {
+      function handleMouseMove(event) {
+        setMousePosition({
+          x: event.clientX,
+          y: event.clientY,
+        });
+      }
+
+      window.addEventListener('mousemove', handleMouseMove);
+
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+      };
     }
+  }, [isEnabled]);
 
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // Cleanup function:
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+  function toggleMouseTracking() {
+    setIsEnabled(!isEnabled);
+  }
 
   return (
-    <p>
-      {mousePosition.x} / {mousePosition.y}
-    </p>
+    <>
+      <button onClick={toggleMouseTracking}>
+        Mouse Tracking: {isEnabled ? 'On' : 'Off'}
+      </button>
+      <p>
+        {mousePosition.x} / {mousePosition.y}
+      </p>
+    </>
   );
 }
 
