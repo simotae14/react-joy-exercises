@@ -3,7 +3,7 @@ html, body, #root {
 }
 body {
   padding: 0px;
-  background: hsl(250deg 80% 85%);
+  background: hsl(90deg 80% 85%);
 }
 
 .wrapper {
