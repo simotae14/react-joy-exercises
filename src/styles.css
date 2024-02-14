@@ -1,23 +1,14 @@
-#root {
-  height: 200px;
+html, body, #root {
+  height: 100%;
 }
 body {
-  background: hsl(345deg 80% 85%);
+  padding: 0px;
+  background-color: hsl(200deg 1000% 88%);
 }
 #root {
   display: grid;
   place-content: center;
 }
-.clock {
-  font-size: 2rem;
-  font-family: monospace;
-  font-variant-numeric: tabular-nums;
-}
-.clock-toggle {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 32px;
-  margin: auto;
-  width: 150px;
+input {
+  transform: scale(8);
 }
