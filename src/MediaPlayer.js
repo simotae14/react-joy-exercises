@@ -41,6 +41,11 @@ function MediaPlayer({ src }) {
           <p>Bvrnout ft. Mia Vaile</p>
         </div>
         <button
+          onKeyDown={(event) => {
+            if (event.code === 'Space') {
+              event.stopPropagation();
+            }
+          }}
           onClick={() => {
             setIsPlaying(!isPlaying);
           }}
