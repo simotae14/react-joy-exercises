@@ -4,12 +4,12 @@ function Timer() {
   const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
-    const intervalId = window.setInterval(() => {
+    const timeoutId = window.setTimeout(() => {
       setCount(count + 1);
     }, 1000);
 
     return () => {
-      window.clearInterval(intervalId);
+      window.clearTimeout(timeoutId);
     };
   }, [count]);
 
