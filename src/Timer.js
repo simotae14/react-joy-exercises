@@ -5,15 +5,13 @@ function Timer() {
 
   React.useEffect(() => {
     const intervalId = window.setInterval(() => {
-      setCount((currentCount) => {
-        return currentCount + 1;
-      });
+      setCount(count + 1);
     }, 1000);
 
     return () => {
       window.clearInterval(intervalId);
     };
-  }, []);
+  }, [count]);
 
   return (
     <div className="timer">
