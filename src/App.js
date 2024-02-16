@@ -1,13 +1,11 @@
 import React from 'react';
 
-import MediaPlayer from './MediaPlayer'
-
-const DEMO_SONG_SRC = 'https://storage.googleapis.com/joshwcomeau/bvrnout-take-it-easy-short.mp3';
+import Timer from './Timer'
 
 function App() {
   return (
     <>
-      <MediaPlayer src={DEMO_SONG_SRC} />
+      <Timer />
     </>
   );
 }
