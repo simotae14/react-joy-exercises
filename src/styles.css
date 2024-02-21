@@ -1,19 +1,31 @@
-html, body, #root {
-  height: 100%;
-}
 body {
   padding: 0px;
-  background: hsl(250deg 80% 85%);
 }
-
-.wrapper {
-  height: 200px;
+header {
+  position: fixed;
+  top: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 16px;
+  background: hsl(0deg 0% 90% / 0.8);
+  backdrop-filter: blur(10px);
 }
-p {
-  font-size: 2.5rem;
-  font-family: monospace;
+#root {
+  padding-top: 130vh;
+  padding-bottom: 150vh;
+}
+.box {
+  background: tomato;
+  width: min(75%, 300px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+.box.red {
+  background: tomato;
+}
+.box.purple {
+  background: mediumpurple;
+  margin-top: 32px;
 }
