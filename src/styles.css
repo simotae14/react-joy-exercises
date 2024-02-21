@@ -1,23 +1,19 @@
-#root {
-  height: 200px;
+html, body, #root {
+  height: 100%;
 }
 body {
-  background: hsl(345deg 80% 85%);
+  padding: 0px;
+  background: hsl(250deg 80% 85%);
 }
-#root {
-  display: grid;
-  place-content: center;
+
+.wrapper {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.clock {
-  font-size: 2rem;
+p {
+  font-size: 2.5rem;
   font-family: monospace;
-  font-variant-numeric: tabular-nums;
-}
-.clock-toggle {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 32px;
-  margin: auto;
-  width: 150px;
 }
