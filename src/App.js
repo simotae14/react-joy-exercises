@@ -3,8 +3,7 @@ import React from 'react';
 import useIsOnscreen from './hooks/use-is-onscreen.js';
 
 function App() {
-  const elementRef = React.useRef();
-  const isOnscreen = useIsOnscreen(elementRef);
+  const [isOnscreen, elementRef] = useIsOnscreen();
   
   return (
     <>
