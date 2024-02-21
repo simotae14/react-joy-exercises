@@ -3,15 +3,18 @@ import React from 'react';
 import useIsOnscreen from './hooks/use-is-onscreen.js';
 
 function App() {
-  const [isOnscreen, elementRef] = useIsOnscreen();
+  const [isOnscreenRed, elementRedRef] = useIsOnscreen();
+  const [isOnscreenPurple, elementPurpleRef] = useIsOnscreen();
   
   return (
     <>
       <header>
-        Red box visible: {isOnscreen ? 'YES' : 'NO'}
+        Red box visible: {isOnscreenRed ? 'YES' : 'NO'}<br />
+        Purple box visible: {isOnscreenPurple ? 'YES' : 'NO'}
       </header>
       <div className="wrapper">
-        <div ref={elementRef} className="red box" />
+        <div ref={elementRedRef} className="red box" />
+        <div ref={elementPurpleRef} className="purple box" />
       </div>
     </>
   );
