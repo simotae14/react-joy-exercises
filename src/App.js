@@ -1,20 +1,13 @@
 import React from 'react';
 
-import Clock from './Clock'
-
 function App() {
-  const [showClock, setShowClock] = React.useState(true);
+  React.useEffect(() => {
+    console.log('Mount check!');
+  }, []);
   
   return (
     <>
-      <button
-        className="clock-toggle"
-        onClick={() => setShowClock(!showClock)}
-      >
-        {showClock ? 'Clock ON' : 'Clock OFF'}
-      </button>
-      
-      {showClock && <Clock />}
+      Hello World!
     </>
   );
 }
