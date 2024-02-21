@@ -1,23 +1,20 @@
 import React from 'react';
 
-import MediaPlayer from './MediaPlayer'
-
-const DEMO_SONG_SRC = 'https://storage.googleapis.com/joshwcomeau/bvrnout-take-it-easy-short.mp3';
+import Clock from './Clock'
 
 function App() {
-  const [
-    showMediaPlayer,
-    setShowMediaPlayer
-  ] = React.useState(true);
+  const [showClock, setShowClock] = React.useState(true);
   
   return (
     <>
       <button
-        onClick={() => setShowMediaPlayer(!showMediaPlayer)}
+        className="clock-toggle"
+        onClick={() => setShowClock(!showClock)}
       >
-        Toggle media player
+        {showClock ? 'Clock ON' : 'Clock OFF'}
       </button>
-      {showMediaPlayer && <MediaPlayer src={DEMO_SONG_SRC} />}
+      
+      {showClock && <Clock />}
     </>
   );
 }
